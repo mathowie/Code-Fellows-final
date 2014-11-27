@@ -10,7 +10,7 @@
 <!-- my own custom one-off styles are limited to this sheet that is loaded last to override the theme -->    
     <link rel="stylesheet" href="stylesheets/style.css">
 <!-- adding jquery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- my own custom scripts for the calculations -->
     <script src="javascripts/sorts.js"></script>
 
@@ -66,35 +66,41 @@ answer = Math.floor(Math.random() * 100) + 1;
   <div class="randomnumber">Click to generate a random number between 1-100</div>
 </p>
 
-<p>
-  We'll now create a building in CSS using some simple drawing commands to represent our answer. The following building is x floors high
-</p>
+<div class="showbuilding">
+  <p>
+    We'll now create a building in CSS using some simple drawing commands to represent our answer. The following building is <span class="answer"></span> floors high
+  </p>
 
-<p>
-  <div class="building"></div>  
-</p>
+  <p>
+    <div class="building"></div>  
+  </p>
+
 
 <h3>
   Creating an array
 </h3>
 
 <p>
-  Next, we create a 100 item array representing the total floors in the building
+  Next, we create a 100 item array representing the total floors in the building, displayed in a random shuffled order
 </p>
 
 <code><pre>
-function range(a, b) {
-  var arr = [];
+for (var a=[],i=0;i < 101;++i) a[i]=i;
 
-  while (a < b + 1) {
-    arr.push(a++);
+function shuffle(array) {
+  var tmp, current, top = array.length;
+  if(top) while(--top) {
+    current = Math.floor(Math.random() * (top + 1));
+    tmp = array[current];
+    array[current] = array[top];
+    array[top] = tmp;
   }
-
-  return arr;
+  return array;
 }
 
-console.log(range(1, 100)
+a = shuffle(a);
 
+console.log(a)
 </pre></code>
 
 
@@ -135,8 +141,11 @@ console.log(range(1, 100)
 </h3>
 
 <p>
-  The answer to the interview question is not to try every floor until you arrive at an answer. That's too inefficient, taking too many steps and taking too long to complete. The correct answer the interviewer was looking for was to approach the problem in an efficient manner, by going halfway up the building and dropping an egg off the 50th floor to instantly remove half the possibilities. If it broke, you'd go down to the 25th floor, and then the 12th, and so on until you arrived at the answer in just a few steps.
+  <strong>The answer</strong> to the interview question is not to try every floor until you arrive at an answer. That's too inefficient, taking too many steps and taking too long to complete. The correct answer the interviewer was looking for was to approach the problem in an efficient manner, by going halfway up the building and dropping an egg off the 50th floor to instantly remove half the possibilities. If it broke, you'd go down to the 25th floor, and then the 12th, and so on until you arrived at the answer in just a few steps.
 </p>
+
+<p>
+  Every time you use Google for search, you are  with billions of items on almost any search query, and getting to an answer efficiently is of prime importance for them to operate at the scale they do
 
 <p>
   The quicksort method is more efficient with our 100 item array, and saved us x steps in the process. The bubble sort represents the slow, methodical, inefficient sorting of climbing every floor, while the quicksort cuts the array in half, and half again, and so on until arriving at the answer.
@@ -146,6 +155,7 @@ console.log(range(1, 100)
   By the way, my friend did eventually end up with a job at Google working on Blogger and later went on to help implement the web interface for Gmail and Google Reader. I'd argue that tricky brain teasers might not be the best possible way to interview programmers when a talented guy like my friend failed the first time around. 
 </p>
 
+</div>
 
       </section>
       <footer>

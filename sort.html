@@ -26,27 +26,110 @@ document.write(answer);
 // report number of steps to find solution in quicksort
 
 
-function range(a, b) {
-  var arr = [];
+for (var a=[],i=0;i<answer;++i) a[i]=i;
 
-  while (a < b + 1) {
-    arr.push(a++);
+function shuffle(array) {
+  var tmp, current, top = array.length;
+  if(top) while(--top) {
+    current = Math.floor(Math.random() * (top + 1));
+    tmp = array[current];
+    array[current] = array[top];
+    array[top] = tmp;
   }
-
-  return arr;
+  return array;
 }
 
-console.log(range(1, 100))
+a = shuffle(a);
+b = shuffle(a);
+
+console.log(a)
+
+
+// bubble sort the array
+
+var sort = function (list) {
+ 
+    var comparisons = 0,
+        swaps = 0,
+        endIndex = 0,
+        len = list.length - 1;
+ 
+    for (var i = 0; i < len; i++) {
+ 
+        for (var j = 0, swapping, endIndex = len - i; j < endIndex; j++) {
+            comparisons++;
+ 
+            if (list[j] > list[j + 1]) {
+         
+                swapping = list[j];
+ 
+                list[j] = list[j + 1];
+                list[j + 1] = swapping;
+ 
+                swaps++;
+            };
+        };
+    }
+ 
+    console.log("--Bubble Sort--");
+    console.log("Comparisons: " + comparisons);
+    console.log("Swaps: " + swaps);
+                 
+    return list;
+
+};
+
+// bubble sort our array
+sort(a);
+
+// create merge sort of our array
+
+var comparisons = 0,
+	swaps = 0; 
+function mergeSort(arr) {
+    if (arr.length < 2)
+        return arr;
+
+    var middle = parseInt(arr.length / 2);
+    var left   = arr.slice(0, middle);
+    var right  = arr.slice(middle, arr.length);
+ 
+ 
+    return merge(mergeSort(left), mergeSort(right));
+
+}
+ 
+function merge(left, right)
+{
+    var result = [];
+ 
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+            swaps++;
+        } else {
+            result.push(right.shift());
+        }
+        comparisons++
+    }
+ 
+    while (left.length)
+        result.push(left.shift());
+ 
+    while (right.length)
+        result.push(right.shift());
+ 
+    return result;
+}
+
+// merge sort our array 
+console.log(mergeSort(b));
+
+console.log("--Merge Sort--");
+console.log("Comparisons: " + comparisons);
+console.log("Swaps: " + swaps);
+
+
 
 </script>
 
-<style type="text/css">
-.building {
-  background-color: gray;
-  background-image: linear-gradient(transparent 50%, rgba(255,255,255,.25) 50%);
-  background-size: 5px 5px;
-  width: 100px;
-}
-</style>
-
-<div class="building" style="height:<script>document.write(answer);</script>px;"></div>
