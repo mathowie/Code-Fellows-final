@@ -48,7 +48,7 @@ console.log(a)
 
 
 // bubble sort the array to count comparisons/swaps
-
+// functions adapted from http://www.contentedcoder.com/2012/09/bubble-sort-algorithm-in-javascript.html
 var sort = function (list) {
  
     var comparisons = 0,
@@ -89,6 +89,7 @@ var sort = function (list) {
 	sort(a);
 
 // create merge sort of our array
+// functions adapted from http://www.stoimen.com/blog/2010/07/02/friday-algorithms-javascript-merge-sort/
 
 var comparisons = 0,
 	swaps = 0; 
