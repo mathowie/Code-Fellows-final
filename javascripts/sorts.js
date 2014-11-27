@@ -32,9 +32,19 @@ function shuffle(array) {
   return array;
 }
 
+// shuffle the arrays twice so we can compare them later separately
 a = shuffle(a);
+b = shuffle(a);
 
 console.log(a)
+
+// display the shuffled array contents in the code block on the page
+  var el = $.map(a, function(val, i) {
+  	return " " + val + ", ";
+	});
+	    
+	$(".arrayoutput").html(el.join(""));
+
 
 
 // bubble sort the array to count comparisons/swaps
@@ -66,13 +76,19 @@ var sort = function (list) {
     console.log("--Bubble Sort--");
     console.log("Comparisons: " + comparisons);
     console.log("Swaps: " + swaps);
+    console.log("Total steps " + (comparisons+swaps));
                  
     return list;
 
 };
 
-// bubble sort the randomized array
+// bubble sort the randomized array of length $answer
 sort(a);
+
+// display total number of steps for bubble sort in the browser
+
+
+
 
 });
 
