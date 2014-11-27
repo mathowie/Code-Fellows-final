@@ -8,7 +8,7 @@
 // make click to display random number and change showbuilding class to display
 	$("#randomnumber").click(function() {
 	$("#randomnumber").html($answer);
-	$(".showbuilding").show();
+	$(".showbuilding").fadeIn("slow");
 });
 
 // change text to represent building levels
