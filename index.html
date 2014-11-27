@@ -63,7 +63,7 @@ answer = Math.floor(Math.random() * 100) + 1;
 </p>
 
 <p>
-  <form><input type="submit" value="Calculate random answer" class="randomnumber"></form>
+  <div class="randomnumber">Click to generate a random number between 1-100</div>
 </p>
 
 <p>
@@ -113,20 +113,37 @@ console.log(range(1, 100)
 <p>
   The bubble sort represents our inefficient method 
 </p>
-<p>
 
+<p>
+  The bubble sort took: steps to fininsh
 </p>
-<p>
 
+<h4>
+  Quicksort
+</h4>
+
+<p>
+  The native javascript sort() method in Google Chrome uses quicksort (mozilla varients use mergesort, Safari uses selection sort)
 </p>
-<p>
 
+<p>
+  The quicksort method using sort() took: steps to finish
 </p>
-<p>
 
+<h3>
+  Conclusions
+</h3>
+
+<p>
+  The answer to the interview question is not to try every floor until you arrive at an answer. That's too inefficient, taking too many steps and taking too long to complete. The correct answer the interviewer was looking for was to approach the problem in an efficient manner, by going halfway up the building and dropping an egg off the 50th floor to instantly remove half the possibilities. If it broke, you'd go down to the 25th floor, and then the 12th, and so on until you arrived at the answer in just a few steps.
 </p>
-<p>
 
+<p>
+  The quicksort method is more efficient with our 100 item array, and saved us x steps in the process. The bubble sort represents the slow, methodical, inefficient sorting of climbing every floor, while the quicksort cuts the array in half, and half again, and so on until arriving at the answer.
+</p>
+
+<p>
+  By the way, my friend did eventually end up with a job at Google working on Blogger and later went on to help implement the web interface for Gmail and Google Reader. I'd argue that tricky brain teasers might not be the best possible way to interview programmers when a talented guy like my friend failed the first time around. 
 </p>
 
 

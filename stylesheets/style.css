@@ -23,6 +23,8 @@ width:100px;
 
 .randomnumber {
 	padding:6px;
-	background: #666;
-	color:white;
+	background: #ccc;
+	font-weight: bold;
+	color:black;
+	text-align: center;
 }
