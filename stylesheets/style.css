@@ -1,0 +1,28 @@
+blockquote {
+	  font-weight: bold;
+	  font-style:normal;
+}
+
+pre, code {
+	background:black;
+	color:skyblue;
+}
+
+.building {
+  background-color: black;
+  background: linear-gradient(#ccc 80%, black 20%);
+  background-size: 100% 20%;
+  background-repeat: repeat-y;
+);
+/* The rectangle in which to repeat. 
+   It can be fully wide in this case */
+background-size: 100% 20px;
+height:400px;
+width:100px;
+}
+
+.randomnumber {
+	padding:6px;
+	background: #666;
+	color:white;
+}
