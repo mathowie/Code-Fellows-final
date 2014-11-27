@@ -77,17 +77,67 @@ var sort = function (list) {
     console.log("Comparisons: " + comparisons);
     console.log("Swaps: " + swaps);
     console.log("Total steps " + (comparisons+swaps));
-                 
+
+		// display total number of steps for bubble sort in the browser
+			$(".bubblesteps").html(comparisons+swaps);
+
     return list;
 
 };
 
 // bubble sort the randomized array of length $answer
-sort(a);
+	sort(a);
+
+// create merge sort of our array
+
+var comparisons = 0,
+	swaps = 0; 
+function mergeSort(arr) {
+    if (arr.length < 2)
+        return arr;
+
+    var middle = parseInt(arr.length / 2);
+    var left   = arr.slice(0, middle);
+    var right  = arr.slice(middle, arr.length);
+ 
+ 
+    return merge(mergeSort(left), mergeSort(right));
+
+}
+ 
+function merge(left, right)
+{
+    var result = [];
+ 
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+            swaps++;
+        } else {
+            result.push(right.shift());
+        }
+        comparisons++
+    }
+ 
+    while (left.length)
+        result.push(left.shift());
+ 
+    while (right.length)
+        result.push(right.shift());
+ 
+    return result;
+}
+
+// merge sort our array 
+		console.log(mergeSort(b));
+
+		console.log("--Merge Sort--");
+		console.log("Comparisons: " + comparisons);
+		console.log("Swaps: " + swaps);
+		console.log("Total steps " + (comparisons+swaps));
 
 // display total number of steps for bubble sort in the browser
-
-
+		$(".mergesteps").html(comparisons+swaps);
 
 
 });

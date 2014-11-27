@@ -108,7 +108,7 @@ console.log(a)
 </p>
 
 <code><pre class="arrayoutput">
- []
+
 </pre></code>
 
 <h3>
@@ -168,19 +168,77 @@ sort(a);
 </pre></code>
 
 <p>
-  The bubble sort took: steps to fininsh
+  The bubble sort function above counts both comparision steps as well as swapping steps and I've combined them to come up with a value for the total steps to finish.
+</p>
+
+<p>
+  <strong>Total steps required of a bubble sort of <span class="answer"></span> items: <span class="bubblesteps"></span></strong>
 </p>
 
 <h4>
-  Quicksort
+  Merge Sort
 </h4>
 
 <p>
-  The native javascript sort() method in Google Chrome uses quicksort (mozilla varients use mergesort, Safari uses selection sort)
+  Merge sort uses more of a divide-and-conquer method to split groups in the array and quickly compare them for sorting or determine they are already sorted. It takes a lot less steps to accomplish the same re-ordering of the array. The code is as follows:
+</p>
+
+<code><pre>
+// create merge sort of our array
+
+var comparisons = 0,
+  swaps = 0; 
+function mergeSort(arr) {
+    if (arr.length < 2)
+        return arr;
+
+    var middle = parseInt(arr.length / 2);
+    var left   = arr.slice(0, middle);
+    var right  = arr.slice(middle, arr.length);
+ 
+ 
+    return merge(mergeSort(left), mergeSort(right));
+
+}
+ 
+function merge(left, right)
+{
+    var result = [];
+ 
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+            swaps++;
+        } else {
+            result.push(right.shift());
+        }
+        comparisons++
+    }
+ 
+    while (left.length)
+        result.push(left.shift());
+ 
+    while (right.length)
+        result.push(right.shift());
+ 
+    return result;
+}
+
+// merge sort our array 
+console.log(mergeSort(b));
+
+console.log("--Merge Sort--");
+console.log("Comparisons: " + comparisons);
+console.log("Swaps: " + swaps);
+console.log("Total steps " + (comparisons+swaps));
+</pre></code>
+
+<p>
+  The Merge sort method includes a counter inside the function to split things up as well as the function to check if one is bigger than the other.
 </p>
 
 <p>
-  The quicksort method using sort() took: steps to finish
+  <strong>Total steps required of a merge sort of <span class="answer"></span> items: <span class="mergesteps"></span></strong>
 </p>
 
 <h3>
@@ -192,14 +250,17 @@ sort(a);
 </p>
 
 <p>
-  Every time you use Google for search, you are  with billions of items on almost any search query, and getting to an answer efficiently is of prime importance for them to operate at the scale they do
-
-<p>
-  The quicksort method is more efficient with our 100 item array, and saved us x steps in the process. The bubble sort represents the slow, methodical, inefficient sorting of climbing every floor, while the quicksort cuts the array in half, and half again, and so on until arriving at the answer.
+  Every time you use Google for search, you are dealing with potentially billions of items that must be sorted instantly on almost any search query, and getting to an answer efficiently is of prime importance for them to operate at the scale they do.
 </p>
 
 <p>
-  By the way, my friend did eventually end up with a job at Google working on Blogger and later went on to help implement the web interface for Gmail and Google Reader. I'd argue that tricky brain teasers might not be the best possible way to interview programmers when a talented guy like my friend failed the first time around. 
+  The merge sort method is more efficient with our array, on the order of about 1/10 as many steps as the bubble sort, or one magnitude of efficency. The bubble sort represents the slow, methodical, inefficient sorting of climbing every floor, while the merge sort cuts the array in half, and half again, and so on until arriving at the answer.
+</p>
+
+<p>
+  <blockquote>
+  By the way, my friend did eventually end up with a job at Google working on Blogger and later went on to help implement the web interface for Gmail and Google Reader. I'd argue that tricky brain teasers might not be the best possible way to interview programmers when a talented guy like my friend failed the first time around. :)
+  </blockquote> 
 </p>
 
 </div>
