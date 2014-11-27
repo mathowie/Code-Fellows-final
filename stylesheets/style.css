@@ -37,3 +37,15 @@ width:150px;
 .showbuilding {
 	display: none;
 }
+
+.finalresults {
+	padding:6px;
+	background: #ffe;
+	color:black;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+
+.finalresults .answer {
+	font-weight: normal;
+}
