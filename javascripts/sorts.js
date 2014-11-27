@@ -6,8 +6,8 @@
 	$answer = Math.floor(Math.random() * 100) + 1
 
 // make click to display random number and change showbuilding class to display
-	$( ".randomnumber" ).click(function() {
-	$(".randomnumber").html($answer);
+	$( "#randomnumber" ).click(function() {
+	$("#randomnumber").html($answer);
 	$(".showbuilding").show();
 });
 
